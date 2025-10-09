@@ -34,7 +34,7 @@
         console.log('no captions parent');
         return;
       }
-      const captions = [...captionsParent.children].filter((captionElement) => !captionElement.querySelector('button') /* "scroll to bottom" button */);
+      const captions = [...captionsParent.children].filter((captionElement) => !captionElement.querySelector('button') /* "scroll to bottom" button */ && captionElement.children[1] /* caption has text */);
 
       if (!captions.length) return;
 
