@@ -3,7 +3,7 @@
   window.showDirectoryPicker({ mode: 'readwrite' }).then((dir) => {
     window[windowDirHandleKey] = dir;
   });
-  setInterval(async () => {
+  const intervalId = setInterval(async () => {
     try {
       const parentElementOfCaptionsSelector = '[aria-label="Captions"]';
 
@@ -45,7 +45,7 @@
         (captionElement) => !captionElement.querySelector('button') /* "scroll to bottom" button */ && captionElement.children[1] /* caption has text */,
       );
 
-      if (!captions.length) return;
+      if (!captions.length) return console.log('no captions');
 
       captions.forEach((captionElement) => {
         if (!captionElement[captionDOMElementKey]) {
@@ -131,4 +131,5 @@
       console.log(e);
     }
   }, 5000);
+  console.log('intervalId', intervalId)
 })();
