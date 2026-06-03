@@ -23,8 +23,7 @@
       window[windowMeetStartDateKey] = window[windowMeetStartDateKey] || new Date();
 
       if (!window[windowMeetNameKey]) {
-        const titleElement = document.querySelector('[data-meeting-title]');
-        const title = titleElement ? titleElement.getAttribute('data-meeting-title') : 'unknown-meet';
+        const title = document.title.replace('Meet - ', '');
         window[windowMeetNameKey] = title.trim().replace(/[^a-zA-Z0-9-]/g, '_');
       }
 
